@@ -7,14 +7,28 @@ Solution for QA Frontend Challenge by 'Syed Kashif Hussain Akhter' <akhter05@gma
 
 3. To override the base URL in Cypress.JSON file, execute below commands;
 
-	To execute test cases on Tajawal website
+	a.To execute headless test cases on Tajawal website
+	
+	npx cypress run --env api_server=tajawal.com
+	
+	b.To execute test cases on Tajawal website
 	
 	npx cypress open --env api_server=tajawal.com
 	
-	Or below command to execute test cases on Almosafer website
+	c. To execute headless test cases on Almosafer website
+	
+	npx cypress run --env api_server=ae.almosafer.com
+	
+	d. To execute headless test cases on Almosafer website
 	
 	npx cypress open --env api_server=ae.almosafer.com
 
 4. 'cypress\integration' folder contains two seprate folders; firstscenario and secondscenario. Each folder contains .js file for respective first and second scenario mentioned in challenge.
 
 5. The project has two test scenario .js files, one JSON file in Fixture folder, index.js and commands.js file.
+
+6. I have used mochawesome reports in this project. Please install using below command to generate the report. And add "reporter": "mochawesome" in Cypress.JSON file.
+
+   npm install --save-dev mocha mochawesome mochawesome-merge mochawesome-report-generator
+   
+   
