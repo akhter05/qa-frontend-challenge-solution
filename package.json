@@ -1,0 +1,29 @@
+{
+  "name": "qa-frontend-code-challenge",
+  "version": "1.0.0",
+  "description": "Solution for QA Front End code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cyp:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhter05/qa-frontend-challenge-solution.git"
+  },
+  "keywords": [
+    "qafrontendcode"
+  ],
+  "author": "Syed Kashif Hussain Akhter <akhter05@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akhter05/qa-frontend-challenge-solution/issues"
+  },
+  "homepage": "https://github.com/akhter05/qa-frontend-challenge-solution#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^3.6.0",
+    "mochawesome": "^4.1.0",
+    "mochawesome-merge": "^2.0.1"
+  }
+}
