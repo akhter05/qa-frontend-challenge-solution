@@ -39,9 +39,17 @@ describe('Scenario: least stop flights page validations', function () {
 // below code validates that error messages are shown for traveller
 // details section
         cy.log('Starting field level validations for mandatory data')
-		cy.get('div[data-testid=FlightPAX__Adult1__FirstNameErrorLabel]').should('be.visible').invoke('text').should('eq','Please enter the first name')  
-		cy.get('div[data-testid=FlightPAX__Adult1__LastNameErrorLabel]').should('be.visible').invoke('text').should('eq','Please enter the last name')
 		cy.get('body').then((body) => 
+		{ if (body.find('div[data-testid=FlightPAX__Adult1__FirstNameErrorLabel]').length > 0) 
+		{ 
+		cy.get('div[data-testid=FlightPAX__Adult1__FirstNameErrorLabel]').should('be.visible').invoke('text').should('eq','Please enter the first name')  
+		}})
+        cy.get('body').then((body) => 
+		{ if (body.find('div[data-testid=FlightPAX__Adult1__LastNameErrorLabel]').length > 0) 
+		{ 
+		cy.get('div[data-testid=FlightPAX__Adult1__LastNameErrorLabel]').should('be.visible').invoke('text').should('eq','Please enter the last name')
+		}})
+ 		cy.get('body').then((body) => 
 		{ if (body.find('div[data-testid=FlightPAX__Adult1__DOBErrorLabel]').length > 0) 
 		{ 
 			cy.get('div[data-testid=FlightPAX__Adult1__DOBErrorLabel]').should('be.visible').invoke('text').should('eq','Please enter the date of birth')
