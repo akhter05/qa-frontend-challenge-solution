@@ -20,7 +20,9 @@
     "url": "https://github.com/akhter05/qa-frontend-challenge-solution/issues"
   },
   "homepage": "https://github.com/akhter05/qa-frontend-challenge-solution#readme",
-  "dependencies": {},
+  "dependencies": {
+    "help": "^3.0.2"
+  },
   "devDependencies": {
     "cypress": "^3.6.0",
     "mochawesome": "^4.1.0",

@@ -8,11 +8,13 @@ Cypress.Commands.add('navigateAndChangeLanguage', (baseURLPassed, options = {}) 
 			base_URL_CL	= 'https://' + baseURLPassed + '?ncr=1' 
 			cy.log('Base URL from CLI is ' + base_URL_CL)
 			cy.visit(String(base_URL_CL))
+			cy.wait(1000)  
 		}   else
 		{
-			base_URL_CL = 'https://tajawal.com?ncr=1'
-				cy.log('Base URL from Cypress.JSON file is being used')
-				cy.visit('/')
+			 base_URL_CL = 'https://tajawal.com?ncr=1'
+		     cy.log('Base URL from Cypress.JSON file is being used')
+			 cy.visit('/')
+			 cy.wait(1000)  
 
 		}	
 
@@ -23,13 +25,13 @@ Cypress.Commands.add('navigateAndChangeLanguage', (baseURLPassed, options = {}) 
 		cy.get('a[data-testid=Header__LanguageSwitch]')
 		.then(($seletecdlanguage) => {
 			if ($seletecdlanguage.text().includes('العربية')) {
-				cy.log('I found website in English Language')
+				cy.log('Website is shown in English language, proceeding with the test')
 			}
 			else
 			{
 				// Assert the URL for tajawal and update language
 				cy.url().should('include', 'tajawal')	
-				cy.log('I found website in Arabic Language, updating to English')
+				cy.log('Website is in Arabic language, updating to English')
 				cy.get('a[data-testid=Header__LanguageSwitch]').click({force: true}) 
 				cy.wait(1000)   
 			}
@@ -39,16 +41,11 @@ Cypress.Commands.add('navigateAndChangeLanguage', (baseURLPassed, options = {}) 
 	{
 // Assert the URL for almosafer and update language
 		cy.url().should('include', 'almosafer')
-		cy.log('I found website in Arabic so updating Language')
+		cy.log('Website is in Arabic language, updating Language to English')
 		cy.get('button[data-testid=Header__LanguageSwitch]').click({force: true})
 		cy.get('a').contains('English').click({force: true})
 		cy.wait(2000)
-		cy.get('body').then((body) => 
-		{ if (body.find('button[aria-label=Close Message]').length > 0) 
-		{ 
-			cy.get('button[aria-label=Close Message]').should('be.visible').click({force: true})
-			cy.wait(1000)  
-		}})
+		cy.log('Opening flight search tab')
 		cy.get('a[data-testid=Header__FlightsNavigationTab]').should('be.visible').click({force: true}).should('be.focused')
 		cy.wait(1000)  
 	}
@@ -58,6 +55,7 @@ Cypress.Commands.add('navigateAndChangeLanguage', (baseURLPassed, options = {}) 
 // select from calender
 Cypress.Commands.add('selectFromAndToFutureCalenderDates', (datePrefix, options = {}) => 
 {
+	cy.log('Calculating future dates for flight search and selecting from calender')
 	var fromDate = new Date();
 	var toDate = new Date();
 	fromDate.setDate(fromDate.getDate() + 10) 
@@ -84,7 +82,7 @@ Cypress.Commands.add('selectFromAndToFutureCalenderDates', (datePrefix, options 
 // for flight
 Cypress.Commands.add('fillAndSearchFlights', (flightdata, options = {}) => 
 {
-
+    cy.log('Entering random criteria from Fixture file for flight search')
 	cy.get('a[data-testid=Header__FlightsNavigationTab]').click({force: true})
 	cy.get('div[data-testid=FlightSearchBox__RoundTripButton]').should('be.visible')  
 	cy.get('button[data-testid=FlightSearchBox__FareCalendarTooltip]').should('be.visible').click() 
@@ -104,6 +102,7 @@ Cypress.Commands.add('fillAndSearchFlights', (flightdata, options = {}) =>
 // command
 	cy.selectFromAndToFutureCalenderDates("FlightSearchCalendar__")
 // Search for flights with entered criteria
+    cy.log('Submitting for flight search')
 	cy.get('button[data-testid=FlightSearchBox__SearchButton]').first().should('be.visible').click()
-	cy.wait(1000)   
+	cy.wait(2000)   
 })

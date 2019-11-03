@@ -18,6 +18,7 @@ describe('Scenario: cheapest flight price validation', function() {
 	it('sort by cheapeast flight and do validation from listing page ',
 			function() {
 // sort by cheapest price
+          cy.log('Sorting by cheapest flight')
 				cy.get('button[align=trailing]').last().click({
 					force : true
 				})
