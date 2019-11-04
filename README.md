@@ -4,7 +4,7 @@ Solution for QA Frontend Challenge by 'Syed Kashif Hussain Akhter' <akhter05@gma
 
 1. Download the project.
 
-2. The base URL in Cypress.JSON file has been set to 'https://tajawal.com?ncr=1'. If no URL is passed from command line then this base URL will be used by test file.
+2. The base URL in Cypress.JSON file has been set to 'https://tajawal.com?ncr=1'. If no URL is passed from command line then this base URL will be used by test files.
 
 3. To override the base URL in Cypress.JSON file, execute below commands;
 
@@ -28,9 +28,9 @@ Solution for QA Frontend Challenge by 'Syed Kashif Hussain Akhter' <akhter05@gma
 
 5. The project is comprised of;
 
-   a. Two test scenario 'least-stop-flights-validations.js' and 'cheapest-flight-   validations.js' files 
+   a. Two test scenario named 'least-stop-flights-validations.js' and 'cheapest-flight-validations.js' files in integration folder.
    
-   b. One JSON file 'flightdetails.json'in Fixture folder
+   b. One JSON file 'flightdetails.json'in Fixture folder.
    
    c. index.js and commands.js file which is having the custom commands code.
    
@@ -40,5 +40,7 @@ Solution for QA Frontend Challenge by 'Syed Kashif Hussain Akhter' <akhter05@gma
 6. I have used mochawesome reports in this project. Please install using below command to generate the report. And add "reporter": "mochawesome" in Cypress.JSON file.
 
    npm install --save-dev mocha mochawesome mochawesome-merge mochawesome-report-generator
+   
+7. I have also added some execution videos for both Scenarios in 'Scenario Execution Videos' folder for reference. 
    
    

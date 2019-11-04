@@ -40,8 +40,7 @@ describe('Scenario: least stop flights page validations', function () {
 		cy.get('button[data-testid=FlightPAX__ContinueToPaymentButton]').click({force: true})
 		cy.wait(1000)  
 		cy.get('input[data-testid=FlightPAX__Adult1__MiddleNameInput]').click({force: true})
-// below code validates that error messages are shown for traveller
-// details section
+// where fields are visible, below code validates that error messages are shown for traveller details section 
         cy.log('Starting field level validations for mandatory data')
 		cy.get('body').then((body) => 
 		{ if (body.find('div[data-testid=FlightPAX__Adult1__FirstNameErrorLabel]').length > 0) 
