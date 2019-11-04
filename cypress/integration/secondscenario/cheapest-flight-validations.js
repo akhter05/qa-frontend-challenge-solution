@@ -3,6 +3,7 @@ describe('Scenario: cheapest flight price validation', function() {
 	before(function() {
 // this will get the flight data from fixture file flightdetails.json
 		cy.fixture('flightdetails').as('flightdata')
+		cy.log('Fetching data from Fixture file')
 // get the URL from command line and launch web application by calling
 // custom command
 		cy.navigateAndChangeLanguage(Cypress.env('api_server'))

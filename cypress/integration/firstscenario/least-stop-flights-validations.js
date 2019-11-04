@@ -2,8 +2,8 @@ describe('Scenario: least stop flights page validations', function () {
 
 	before(function () {
 //this will get the flight data from fixture file flightdetails.json
-        cy.log('Fetching data from Fixture file')
-		cy.fixture('flightdetails').as('flightdata')
+    	cy.fixture('flightdetails').as('flightdata')
+		cy.log('Fetching data from Fixture file')
 //get the URL from command line and launch web application by calling custom
 //command
 		cy.navigateAndChangeLanguage(Cypress.env('api_server'))
@@ -16,11 +16,15 @@ describe('Scenario: least stop flights page validations', function () {
 	})
 
 	it('filter and select flight from listing page ', function () {
-// select the least stop/no stop flight
-        cy.log('Selecting the filter for least stop flight')
-		cy.get('.form-check-input').first().click({force: true}).should('be.checked') 
-		cy.wait(1000)  
-		cy.log('Selecting a flight')
+// select the least stop/no stop flight if the filter is available
+	cy.get('body').then((body) => 
+		{ if (body.find('.form-check-input').length > 0) 
+		{ 
+	    cy.log('Selecting the filter for least stop flight')
+        cy.get('.form-check-input').first().click({force: true}).should('be.checked') 
+		cy.wait(1000)  		
+		}})
+     	cy.log('Selecting a flight')
 		cy.get('button[data-testid=FlightSearchResult__Itinerary1__SelectFlightButton]').click({force: true})
 		cy.wait(1000)  
 	})

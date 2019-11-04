@@ -2,11 +2,11 @@
 //this command navigate to the provided URL from command line and update language to English
 Cypress.Commands.add('navigateAndChangeLanguage', (baseURLPassed, options = {}) => 
 {
-
-	var base_URL_CL = 'https://tajawal.com?ncr=1'
+   
+	    var base_URL_CL = 'https://tajawal.com?ncr=1'
 		if(baseURLPassed != null){
 			base_URL_CL	= 'https://' + baseURLPassed + '?ncr=1' 
-			cy.log('Base URL from CLI is ' + base_URL_CL)
+			cy.log('Base URL from CLI is ' + baseURLPassed)
 			cy.visit(String(base_URL_CL))
 			cy.wait(1000)  
 		}   else
@@ -46,7 +46,7 @@ Cypress.Commands.add('navigateAndChangeLanguage', (baseURLPassed, options = {}) 
 		cy.get('a').contains('English').click({force: true})
 		cy.wait(2000)
 		cy.log('Opening flight search tab')
-		cy.get('a[data-testid=Header__FlightsNavigationTab]').should('be.visible').click({force: true}).should('be.focused')
+		cy.get('a[data-testid=Header__FlightsNavigationTab]').click({force: true}).
 		cy.wait(1000)  
 	}
 })
