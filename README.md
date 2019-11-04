@@ -27,10 +27,15 @@ Solution for QA Frontend Challenge by 'Syed Kashif Hussain Akhter' <akhter05@gma
 4. 'cypress\integration' folder contains two seprate folders; firstscenario and secondscenario. Each folder contains .js file for respective first and second scenario mentioned in challenge.
 
 5. The project is comprised of;
+
    a. Two test scenario 'least-stop-flights-validations.js' and 'cheapest-flight-   validations.js' files 
+   
    b. One JSON file 'flightdetails.json'in Fixture folder
+   
    c. index.js and commands.js file which is having the custom commands code.
+   
    b. Cypress.JASON, Package.JASON and this ReadMe.md file.
+   
 
 6. I have used mochawesome reports in this project. Please install using below command to generate the report. And add "reporter": "mochawesome" in Cypress.JSON file.
 
